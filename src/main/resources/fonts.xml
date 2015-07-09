@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fontFamilies>
+
+    <fontFamily name="Arial">
+        <normal>fonts/Arial.ttf</normal>
+        <bold>fonts/Arial_Bold.ttf</bold>
+        <italic>fonts/Arial_Italic.ttf</italic>
+        <boldItalic>fonts/Arial_Bold_Italic.ttf</boldItalic>
+        <pdfEncoding>cp1251</pdfEncoding>
+        <pdfEmbedded>true</pdfEmbedded>
+        <exportFonts>
+            <export key="net.sf.jasperreports.html">Arial, Helvetica, sans-serif</export>
+            <export key="net.sf.jasperreports.xhtml">Arial, Helvetica, sans-serif</export>
+        </exportFonts>
+        <locales>
+            <locale>en_US</locale>
+            <locale>ru_RU</locale>
+        </locales>
+    </fontFamily>
+
+    <fontFamily name="Times">
+        <normal>fonts/Times_New_Roman.ttf</normal>
+        <bold>fonts/Times_New_Roman_Bold.ttf</bold>
+        <italic>fonts/Times_New_Roman_Italic.ttf</italic>
+        <boldItalic>fonts/Times_New_Roman_Bold_Italic.ttf</boldItalic>
+        <pdfEncoding>cp1251</pdfEncoding>
+        <pdfEmbedded>true</pdfEmbedded>
+        <exportFonts>
+            <export key="net.sf.jasperreports.html">"Times New Roman", Times</export>
+            <export key="net.sf.jasperreports.xhtml">"Times New Roman", Times</export>
+        </exportFonts>
+        <locales>
+            <locale>en_US</locale>
+            <locale>ru_RU</locale>
+        </locales>
+    </fontFamily>
+
+</fontFamilies>
