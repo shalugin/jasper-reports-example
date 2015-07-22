@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
-<!-- 2015-07-10T01:22:22 -->
+<!-- 2015-07-22T23:42:22 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="61f02a44-bde7-4497-87e2-be979d0f191c">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="XmlDataAdapter"/>
 	<style name="TahomaStyle" isDefault="true" mode="Transparent" fontName="Arial" fontSize="14" pdfFontName="Arial" pdfEncoding="cp1251" isPdfEmbedded="true"/>
-	<queryString>
-		<![CDATA[]]>
+	<queryString language="xPath">
+		<![CDATA[/root]]>
 	</queryString>
+	<field name="startdate" class="java.sql.Date">
+		<fieldDescription><![CDATA[/root/startdate]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="91" splitType="Stretch">
 			<textField>
-				<reportElement style="TahomaStyle" isPrintRepeatedValues="false" x="0" y="0" width="802" height="79" uuid="4ee8a276-f525-4e17-8f87-ef4747e16b9f"/>
+				<reportElement style="TahomaStyle" isPrintRepeatedValues="false" x="0" y="0" width="802" height="91" uuid="4ee8a276-f525-4e17-8f87-ef4747e16b9f"/>
 				<textFieldExpression><![CDATA["Привет, братишь!"]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="180" height="20" uuid="117b3377-136f-4682-8ea1-ae18cafdc683"/>
+				<textFieldExpression><![CDATA[$F{startdate}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="50" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="25" width="99" height="1" uuid="11b52876-5e92-434c-a59c-26da018aff6e"/>
+			</break>
+		</band>
+		<band height="50">
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="50" uuid="696d731c-c303-465f-8902-589088df15bf"/>
+				<subreportParameter name="XML_INPUT_STREAM">
+					<subreportParameterExpression><![CDATA[$P{XML_INPUT_STREAM}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/")]]></dataSourceExpression>
+				<subreportExpression><![CDATA["Blank_A4_Landscape.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

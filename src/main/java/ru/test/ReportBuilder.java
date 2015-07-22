@@ -6,11 +6,13 @@ import net.sf.jasperreports.engine.data.JRXmlDataSource;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
+import net.sf.jasperreports.engine.query.JRXPathQueryExecuterFactory;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -25,8 +27,8 @@ public final class ReportBuilder {
         PDF
     }
 
-    public static byte[] generateReportFile(InputStream reportStream, String queryPath,
-                                            InputStream dataStream, ReportFormat reportFormat) throws JRException {
+    public static byte[] generateReportFile(InputStream reportStream, byte[] sourceData,
+                                            ReportFormat reportFormat) throws JRException {
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reportStream);
         if (jasperReport == null) {
             throw new JRException("Cannot build report from stream");
@@ -34,7 +36,9 @@ public final class ReportBuilder {
 
         jasperReport.setProperty(JRTextField.PROPERTY_PRINT_KEEP_FULL_TEXT, "true");
         Map<String, Object> params = new HashMap<>();
-        JRXmlDataSource source = new JRXmlDataSource(dataStream);
+        params.put(JRXPathQueryExecuterFactory.XML_INPUT_STREAM, new ByteArrayInputStream(sourceData));
+        JRXmlDataSource source = new JRXmlDataSource(new ByteArrayInputStream(sourceData));
+        source.setDatePattern("yyyy-MM-dd'T'HH:mm:ssXXX");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, source);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         JRAbstractExporter exporter = getExporter(reportFormat);

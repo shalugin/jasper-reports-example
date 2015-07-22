@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
+<!-- 2015-07-22T23:56:12 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5698dcb3-aa88-4064-9a5a-bfb1aec7ccde">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="XmlDataAdapter"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#008B8B">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset1" uuid="09ce1631-5ced-402f-825f-88182bd3d588">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="XmlDataAdapter"/>
+		<parameter name="XML_DATA_DOCUMENT" class="org.w3c.dom.Document" isForPrompting="false"/>
+		<parameter name="XML_INPUT_STREAM" class="java.io.InputStream" isForPrompting="false"/>
+		<parameter name="XML_FILE" class="java.io.File" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.xml.source" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="XML_DATE_PATTERN" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="XML_NUMBER_PATTERN" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="XML_LOCALE" class="java.util.Locale" isForPrompting="false"/>
+		<parameter name="XML_TIME_ZONE" class="java.util.TimeZone" isForPrompting="false"/>
+		<queryString language="xPath">
+			<![CDATA[/root/subReport/items/item]]>
+		</queryString>
+		<field name="item" class="java.lang.String">
+			<fieldDescription><![CDATA[child::text()]]></fieldDescription>
+		</field>
+		<field name="endDate" class="java.lang.String">
+			<fieldDescription><![CDATA[/root/subReport/endDate]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="XML_DATA_DOCUMENT" class="org.w3c.dom.Document" isForPrompting="false"/>
+	<parameter name="XML_INPUT_STREAM" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="XML_FILE" class="java.io.File" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.xml.source" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="XML_DATE_PATTERN" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="XML_NUMBER_PATTERN" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="XML_LOCALE" class="java.util.Locale" isForPrompting="false"/>
+	<parameter name="XML_TIME_ZONE" class="java.util.TimeZone" isForPrompting="false"/>
+	<queryString language="xPath">
+		<![CDATA[/root/subReport]]>
+	</queryString>
+	<field name="endDate" class="java.lang.String">
+		<fieldDescription><![CDATA[endDate]]></fieldDescription>
+	</field>
+	<title>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="240" height="30" uuid="8cdb13cf-f5bc-4ace-a239-bf41c1366d67"/>
+				<textFieldExpression><![CDATA[$F{endDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="642" y="9" width="100" height="30" uuid="8f4d066b-d7cc-4611-b16e-2425127e2c51"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<componentElement>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="802" height="60" isPrintWhenDetailOverflows="true" uuid="07450bf3-e0ee-47f5-94c5-e399fffdd93a"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="Dataset1" uuid="d6147893-c732-46ed-a911-1ec184063980">
+						<datasetParameter name="XML_DATA_DOCUMENT">
+							<datasetParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="XML_INPUT_STREAM">
+							<datasetParameterExpression><![CDATA[$P{XML_INPUT_STREAM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="XML_FILE">
+							<datasetParameterExpression><![CDATA[$P{XML_FILE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="net.sf.jasperreports.xml.source">
+							<datasetParameterExpression><![CDATA[$P{net.sf.jasperreports.xml.source}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="XML_DATE_PATTERN">
+							<datasetParameterExpression><![CDATA[$P{XML_DATE_PATTERN}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="XML_NUMBER_PATTERN">
+							<datasetParameterExpression><![CDATA[$P{XML_NUMBER_PATTERN}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="XML_LOCALE">
+							<datasetParameterExpression><![CDATA[$P{XML_LOCALE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="XML_TIME_ZONE">
+							<datasetParameterExpression><![CDATA[$P{XML_TIME_ZONE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="200" uuid="d3601b00-01dc-447c-9278-f323a1c96855">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="200" height="30" uuid="692e3626-8543-42e3-8976-4ca962254d00"/>
+								<text><![CDATA[endDate]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="30" uuid="3b74932a-f0ed-4ce7-b7cb-3b1abfc6bf66"/>
+								<textFieldExpression><![CDATA[$F{endDate}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="200" uuid="af8d2b2d-3be9-45df-9a23-e301671c1be3">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="200" height="30" uuid="7d7682f5-18ac-4904-96c5-9a6387e180e3"/>
+								<text><![CDATA[endDate]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="30" uuid="72849d74-a808-44f9-a1ca-8c328a179bb7"/>
+								<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
